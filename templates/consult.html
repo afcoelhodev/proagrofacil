@@ -1,0 +1,41 @@
+{% extends "template.html" %}
+{% block content %}
+    <table class="table table-striped table-responsive table-bordered">
+        <thead class="thead-default">
+            <tr>
+                <th>NOME</th>
+                <th>CPF</th>
+                <th>EMAIL</th>
+                <th>LOCAL_LAT</th>
+                <th>LOCAL_LON</th>
+                <th>LAVOURA</th>
+                <th>COLHEITA</th>
+                <th>CAUSA</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in reg_list %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.cpf }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.local_LAT }}</td>
+                <td>{{ item.local_LON }}</td>
+                <td>{{ item.lavoura }}</td>
+                <td>{{ item.colheita }}</td>
+                <td>{{ item.causa }}</td>
+                <td>
+                    <a href="{{ url_for('edit', id=item.id) }}">Edit</a>
+                    <a href="{{ url_for('delete', id=item.id) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-primary" href="{{ url_for('index') }}">Home</a>
+    </div>
+
+{% endblock %}

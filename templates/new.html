@@ -1,0 +1,58 @@
+{% extends "template.html" %}
+{% block content %}
+
+    <form action="{{ url_for('create') }}" method="POST">
+
+        <fieldset>
+            {{ form.csrf_token() }}
+
+            <div class="form-group">
+                {{ form.name.label(class="form-label") }}
+                {{ form.name(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.cpf.label(class="form-label") }}
+                {{ form.cpf(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.local_LAT.label(class="form-label") }}
+                {{ form.local_LAT(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.local_LON.label(class="form-label") }}
+                {{ form.local_LON(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.lavoura.label(class="form-label") }}
+                {{ form.lavoura(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.colheita.label(class="form-label") }}
+                {{ form.colheita(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.causa.label(class="form-label") }}
+                {{ form.causa(class="form-control") }}
+            </div>
+
+            <div>
+                {{ form.save(class="btn btn-primary") }}
+                <a class="btn btn-primary" href="{{ url_for('index') }}">Back</a>
+
+            </div>
+
+        </fieldset>
+    </form>
+
+{% endblock %}
